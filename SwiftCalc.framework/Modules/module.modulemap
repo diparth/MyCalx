@@ -1,0 +1,11 @@
+framework module SwiftCalc {
+  umbrella header "SwiftCalc.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftCalc.Swift {
+    header "SwiftCalc-Swift.h"
+    requires objc
+}
