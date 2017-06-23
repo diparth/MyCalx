@@ -7,9 +7,11 @@
 //
 
 import UIKit
-//import CoreCalculator
+import FirebaseDatabase
 import SwiftCalc
 
+
+var histories = [String]()
 
 
 class ViewController: UIViewController {
@@ -37,6 +39,9 @@ class ViewController: UIViewController {
     var result = ""
     var curOperator = Operations.None
     var math = Math.init()
+    
+    var ref = DatabaseReference()
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -115,12 +120,16 @@ class ViewController: UIViewController {
                 
                 if op == Operations.Addition {
                     result = math.additionWith(leftVal: lv, rightVal: rv)
+                    addToHistory("\(lv) + \(rv) = \(result)")
                 }else if op == Operations.Subtract {
                     result = math.subtractWith(leftVal: lv, rightVal: rv)
+                    addToHistory("\(lv) - \(rv) = \(result)")
                 }else if op == Operations.Multiply {
                     result = math.multiplyWith(leftVal: lv, rightVal: rv)
+                    addToHistory("\(lv) x \(rv) = \(result)")
                 }else if op == Operations.Divide {
                     result = math.devide(leftVal: lv, By: rv)
+                    addToHistory("\(lv) / \(rv) = \(result)")
                 }
                 
                 
@@ -148,22 +157,35 @@ class ViewController: UIViewController {
         
         if op == Operations.Sine && leftVal != ""{
             result = math.sineOf(value: Double.init(leftVal)!)
+            addToHistory("Sine(\(leftVal)) = \(result)")
             leftVal = result
             currentNumber = result
             displayLabel.text = result
             
         }else if op == Operations.Cosine && leftVal != ""{
             result = math.cosineOf(value: Double.init(leftVal)!)
+            addToHistory("Cos(\(leftVal)) = \(result)")
             leftVal = result
             currentNumber = result
             displayLabel.text = result
             
         }else if op == Operations.Tangent && leftVal != ""{
             result = math.tangentOf(value: Double.init(leftVal)!)
+            addToHistory("Tan(\(leftVal)) = \(result)")
             leftVal = result
             currentNumber = result
             displayLabel.text = result
             
+        }
+    }
+    
+    func addToHistory(_ string: String) {
+        if userDefaults.value(forKey: "HistoryEnabled") != nil {
+            if userDefaults.bool(forKey: "HistoryEnabled") {
+                histories.append(string)
+                ref = Database.database().reference(withPath: "/")
+                ref.updateChildValues(["history":histories])
+            }
         }
     }
     

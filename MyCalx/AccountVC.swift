@@ -21,13 +21,17 @@ class AccountVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     @IBOutlet weak var imgBG: UIView!
     @IBOutlet weak var profimage: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var historySwitch: UISwitch!
     
+    
+    
+    @IBOutlet weak var chechHistoryButton: UIButton!
     @IBOutlet weak var loginButton: GIDSignInButton!
     @IBOutlet weak var logoutButton: UIButton!
     
     
     var isUserLoggedIn = false
-    
+    var isHistoryEnabled = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -52,13 +56,23 @@ class AccountVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             rotateLoginView()
         }
         
+        if userDefaults.value(forKey: "HistoryEnabled") != nil {
+            if userDefaults.bool(forKey: "HistoryEnabled") {
+                isHistoryEnabled = userDefaults.bool(forKey: "HistoryEnabled")
+                historySwitch.setOn(isHistoryEnabled, animated: true)
+            }else {
+                isHistoryEnabled = userDefaults.bool(forKey: "HistoryEnabled")
+                historySwitch.setOn(isHistoryEnabled, animated: true)
+            }
+        }else {
+            isHistoryEnabled = false
+            historySwitch.setOn(false, animated: true)
+        }
+        
         
         // Do any additional setup after loading the view.
     }
 
-    
-    
-    
     
     
     
@@ -84,6 +98,17 @@ class AccountVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     @IBAction func loginPressed(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
+    
+    @IBAction func historySwitchChanged(_ sender: Any) {
+        isHistoryEnabled = historySwitch.isOn
+        userDefaults.set(isHistoryEnabled, forKey: "HistoryEnabled")
+        userDefaults.synchronize()
+    }
+    
+    @IBAction func checkHistoryPressed(_ sender: UIButton) {
+        
+    }
+    
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -114,7 +139,11 @@ class AccountVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signOut()
         isUserLoggedIn = false
         userDefaults.set(false, forKey: "isUserLoggedIn")
+        
+        isHistoryEnabled = false
+        userDefaults.set(isHistoryEnabled, forKey: "HistoryEnabled")
         userDefaults.synchronize()
+        
         rotateLoginView()
         self.dismiss(animated: true, completion: nil)
     }
@@ -124,5 +153,8 @@ class AccountVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     @IBAction func backPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
 
 }
