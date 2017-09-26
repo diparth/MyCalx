@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		472911381F79F01B00199089 /* SwiftCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472911371F79F01300199089 /* SwiftCalc.framework */; };
+		472911391F79F01B00199089 /* SwiftCalc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 472911371F79F01300199089 /* SwiftCalc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		475102CE1EFC654700840161 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475102CD1EFC654700840161 /* HistoryVC.swift */; };
 		47A098E21EF4D83E007699FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A098E11EF4D83E007699FE /* AppDelegate.swift */; };
 		47A098E41EF4D83E007699FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A098E31EF4D83E007699FE /* ViewController.swift */; };
 		47A098E71EF4D83E007699FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A098E51EF4D83E007699FE /* Main.storyboard */; };
@@ -14,19 +17,17 @@
 		47A098EC1EF4D83E007699FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A098EA1EF4D83E007699FE /* LaunchScreen.storyboard */; };
 		47A098FC1EF4DDDF007699FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47A098FB1EF4DDDF007699FE /* GoogleService-Info.plist */; };
 		47A098FE1EF4DE1F007699FE /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A098FD1EF4DE1F007699FE /* AccountVC.swift */; };
-		47C7F2BD1EFA23AF00AC624A /* SwiftCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C7F2BC1EFA23AF00AC624A /* SwiftCalc.framework */; };
-		47C7F2BE1EFA23AF00AC624A /* SwiftCalc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47C7F2BC1EFA23AF00AC624A /* SwiftCalc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A69F9AD6CD2E30F2CD14C93B /* Pods_MyCalx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C401E43FF41E7B30D3C1E /* Pods_MyCalx.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		47A098FA1EF4DCE9007699FE /* Embed Frameworks */ = {
+		4729113A1F79F01B00199089 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				47C7F2BE1EFA23AF00AC624A /* SwiftCalc.framework in Embed Frameworks */,
+				472911391F79F01B00199089 /* SwiftCalc.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		468C401E43FF41E7B30D3C1E /* Pods_MyCalx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCalx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		472911371F79F01300199089 /* SwiftCalc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCalc.framework; sourceTree = "<group>"; };
+		475102CD1EFC654700840161 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		47A098DE1EF4D83E007699FE /* MyCalx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCalx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A098E11EF4D83E007699FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47A098E31EF4D83E007699FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,10 +45,8 @@
 		47A098E81EF4D83E007699FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47A098EB1EF4D83E007699FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47A098ED1EF4D83E007699FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47A098F61EF4DCD3007699FE /* CoreCalculator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreCalculator.framework; sourceTree = "<group>"; };
 		47A098FB1EF4DDDF007699FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47A098FD1EF4DE1F007699FE /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
-		47C7F2BC1EFA23AF00AC624A /* SwiftCalc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCalc.framework; path = "../../../Library/Developer/Xcode/DerivedData/SwiftCalc-hdfmdkfbpiphslgpoaeaemjnfeml/Build/Products/Debug-iphoneos/SwiftCalc.framework"; sourceTree = "<group>"; };
 		8A3F13BD2F6B749485122B0C /* Pods-MyCalx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCalx/Pods-MyCalx.debug.xcconfig"; sourceTree = "<group>"; };
 		F7DE2A174AADEDD789C4212E /* Pods-MyCalx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalx.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCalx/Pods-MyCalx.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A69F9AD6CD2E30F2CD14C93B /* Pods_MyCalx.framework in Frameworks */,
-				47C7F2BD1EFA23AF00AC624A /* SwiftCalc.framework in Frameworks */,
+				472911381F79F01B00199089 /* SwiftCalc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +67,7 @@
 		47A098D51EF4D83E007699FE = {
 			isa = PBXGroup;
 			children = (
-				47C7F2BC1EFA23AF00AC624A /* SwiftCalc.framework */,
+				472911371F79F01300199089 /* SwiftCalc.framework */,
 				47A098E01EF4D83E007699FE /* MyCalx */,
 				47A098DF1EF4D83E007699FE /* Products */,
 				A8BFE13C20A8326AF861A6A7 /* Pods */,
@@ -88,6 +89,7 @@
 				47A098E11EF4D83E007699FE /* AppDelegate.swift */,
 				47A098E31EF4D83E007699FE /* ViewController.swift */,
 				47A098FD1EF4DE1F007699FE /* AccountVC.swift */,
+				475102CD1EFC654700840161 /* HistoryVC.swift */,
 				47A098E51EF4D83E007699FE /* Main.storyboard */,
 				47A098E81EF4D83E007699FE /* Assets.xcassets */,
 				47A098EA1EF4D83E007699FE /* LaunchScreen.storyboard */,
@@ -100,7 +102,6 @@
 		602206EC67C1ACBD5EA84690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				47A098F61EF4DCD3007699FE /* CoreCalculator.framework */,
 				468C401E43FF41E7B30D3C1E /* Pods_MyCalx.framework */,
 			);
 			name = Frameworks;
@@ -128,7 +129,7 @@
 				47A098DC1EF4D83E007699FE /* Resources */,
 				1BC0A93C094BF06AF2DDCEAC /* [CP] Embed Pods Frameworks */,
 				506F7298173C0B61376612D0 /* [CP] Copy Pods Resources */,
-				47A098FA1EF4DCE9007699FE /* Embed Frameworks */,
+				4729113A1F79F01B00199089 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A098E41EF4D83E007699FE /* ViewController.swift in Sources */,
+				475102CE1EFC654700840161 /* HistoryVC.swift in Sources */,
 				47A098E21EF4D83E007699FE /* AppDelegate.swift in Sources */,
 				47A098FE1EF4DE1F007699FE /* AccountVC.swift in Sources */,
 			);

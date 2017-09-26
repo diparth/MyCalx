@@ -64,6 +64,19 @@ class ViewController: UIViewController {
         displayLabel.text = currentNumber
     }
     
+    @IBAction func dotPressed(_ sender: UIButton) {
+        if !currentNumber.contains(".") {
+            if currentNumber == "" {
+                currentNumber = currentNumber + "0."
+                displayLabel.text = currentNumber
+                return
+            }
+            currentNumber = currentNumber + "."
+            displayLabel.text = currentNumber
+        }
+        
+    }
+    
     @IBAction func clearPressed(_ sender: UIButton) {
         
         curOperator = Operations.None
@@ -115,8 +128,8 @@ class ViewController: UIViewController {
                 
                 rightVal = currentNumber
                 currentNumber = ""
-                let lv = Double.init(leftVal)!
-                let rv = Double.init(rightVal)!
+                guard let lv = Double.init(leftVal) else {return}
+                guard let rv = Double.init(rightVal) else {return}
                 
                 if op == Operations.Addition {
                     result = math.additionWith(leftVal: lv, rightVal: rv)
@@ -134,7 +147,7 @@ class ViewController: UIViewController {
                 
                 
                 leftVal = result
-                displayLabel.text = result
+                displayLabel.text = result.refined
                 
             }
             curOperator = op
@@ -142,7 +155,9 @@ class ViewController: UIViewController {
         }else {
             leftVal = currentNumber
             currentNumber = ""
-            curOperator = op
+            if leftVal != "" {
+                curOperator = op
+            }
             
         }
         
@@ -192,4 +207,18 @@ class ViewController: UIViewController {
 
     
 }
+
+
+extension String {
+    var refined: String {
+        let tempStr = self.split(separator: ".")
+        if  tempStr[1] == "0"{
+            return self.replacingOccurrences(of: ".0", with: "")
+        }
+        return self
+    }
+}
+
+
+
 
